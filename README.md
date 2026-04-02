@@ -1,61 +1,66 @@
-# Fridge-Temperature-Controller-Using-Python
-class Fridge:
-    def __init__(self,temperature=0):
-        self.temperature = temperature   
-        self.min_temp = -5
-        self.max_temp = 10
-    def display(self):
-        print("\n--- FRIDGE DISPLAY PANEL ---")
-        print(f"Temperature: {self.temperature}°C")
-        print("-----------------------------")
-    def press_plus_button(self):
-        if self.temperature < self.max_temp:
-            self.temperature += 1
-            print(" Temperature Increased")
-        else:
-            print(" Max limit reached!")
-        self.display()
-    def press_minus_button(self):
-        if self.temperature > self.min_temp:
-            self.temperature -= 1
-            print(" Temperature Decreased")
-        else:
-            print(" Min limit reached!")
-        self.display()
-class SmartFridge(Fridge):
-    def quick_freeze(self):
-        print(" Quick Freeze Mode Activated!")
-        self.temperature = -2
-        self.display()
-    def normal_mode(self):
-        print(" Normal Mode Activated!")
-        self.temperature = 2
-        self.display()
-    def Controller(self):
-        while True:
-            print("\n=== FRIDGE CONTROL MENU ===")
-            print("1. Show Temperature")
-            print("2. Press '+' Button")
-            print("3. Press '-' Button")
-            print("4. Quick Freeze Mode")
-            print("5. Normal Mode")
-            print("6. Exit")
-            choice = input("Enter your choice: ")
-            if choice == '1':
-                Fridge.display(self)
-            elif choice == '2':
-                Fridge.press_plus_button(self)
-            elif choice == '3':
-                Fridge.press_minus_button(self)
-            elif choice == '4':
-                SmartFridge.quick_freeze(self)
-            elif choice == '5':
-                SmartFridge.normal_mode(self)
-            elif choice == '6':
-                print("Exiting... Thank you!")
-                break
-            else:
-                print("Invalid choice! Try again.")
+Smart Fridge Temperature Controller (Python)
+Overview
+
+This project is a Smart Fridge Temperature Controller built using Python. It simulates a real refrigerator system where users can monitor and control temperature through a menu-driven interface. The project demonstrates core Object-Oriented Programming (OOP) concepts.
+
+Features
+View current temperature
+Increase / decrease temperature
+Quick Freeze mode (-2°C)
+Normal mode (2°C)
+Input validation for safe temperature limits
+Continuous menu-driven interaction
 
 
+Concepts Used
+Object-Oriented Programming (OOP)
+Classes & Objects
+Inheritance
+Conditional Statements
+Loops (while loop)
 
+
+Project Structure
+Fridge (Parent Class)
+   ├── Attributes: temperature, min_temp, max_temp
+   ├── Methods: display(), increase(), decrease()
+
+SmartFridge (Child Class)
+   ├── Inherits Fridge
+   ├── Methods: quick_freeze(), normal_mode(), menu()
+
+
+How It Works
+The program displays a menu with options
+User selects an action
+System performs the operation
+Loop continues until user exits
+
+
+sample Menu
+1. Display Temperature
+2. Increase Temperature
+3. Decrease Temperature
+4. Quick Freeze Mode
+5. Normal Mode
+6. Exit
+
+
+How to Run
+python fridge.py
+📷 Output Example
+--- FRIDGE DISPLAY PANEL ---
+Temperature: 2°C
+---------------------------
+
+
+Objective
+Simulate a real-world fridge system
+Apply OOP concepts in Python
+Build an interactive console application
+
+ 
+
+Conclusion
+
+This project successfully demonstrates how Python and OOP can be used to create a structured, reusable, and real-world simulation of a smart appliance.
