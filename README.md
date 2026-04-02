@@ -1,2 +1,61 @@
 # Fridge-Temperature-Controller-Using-Python
-This project simulates a smart fridge temperature controller using Python and OOP concepts. It allows users to monitor, increase, or decrease temperature, and switch between modes like Quick Freeze and Normal. The menu-driven system ensures easy interaction, real-world relevance, and efficient control within safe limits.
+class Fridge:
+    def __init__(self,temperature=0):
+        self.temperature = temperature   
+        self.min_temp = -5
+        self.max_temp = 10
+    def display(self):
+        print("\n--- FRIDGE DISPLAY PANEL ---")
+        print(f"Temperature: {self.temperature}°C")
+        print("-----------------------------")
+    def press_plus_button(self):
+        if self.temperature < self.max_temp:
+            self.temperature += 1
+            print(" Temperature Increased")
+        else:
+            print(" Max limit reached!")
+        self.display()
+    def press_minus_button(self):
+        if self.temperature > self.min_temp:
+            self.temperature -= 1
+            print(" Temperature Decreased")
+        else:
+            print(" Min limit reached!")
+        self.display()
+class SmartFridge(Fridge):
+    def quick_freeze(self):
+        print(" Quick Freeze Mode Activated!")
+        self.temperature = -2
+        self.display()
+    def normal_mode(self):
+        print(" Normal Mode Activated!")
+        self.temperature = 2
+        self.display()
+    def Controller(self):
+        while True:
+            print("\n=== FRIDGE CONTROL MENU ===")
+            print("1. Show Temperature")
+            print("2. Press '+' Button")
+            print("3. Press '-' Button")
+            print("4. Quick Freeze Mode")
+            print("5. Normal Mode")
+            print("6. Exit")
+            choice = input("Enter your choice: ")
+            if choice == '1':
+                Fridge.display(self)
+            elif choice == '2':
+                Fridge.press_plus_button(self)
+            elif choice == '3':
+                Fridge.press_minus_button(self)
+            elif choice == '4':
+                SmartFridge.quick_freeze(self)
+            elif choice == '5':
+                SmartFridge.normal_mode(self)
+            elif choice == '6':
+                print("Exiting... Thank you!")
+                break
+            else:
+                print("Invalid choice! Try again.")
+
+
+
